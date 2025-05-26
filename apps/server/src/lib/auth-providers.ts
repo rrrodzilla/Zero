@@ -50,6 +50,30 @@ export const authProviders = (env: Record<string, string>): ProviderConfig[] => 
     },
     required: true,
   },
+  {
+    id: 'imap',
+    name: 'IMAP/SMTP',
+    requiredEnvVars: [
+      'IMAP_HOST',
+      'IMAP_PORT',
+      'SMTP_HOST',
+      'SMTP_PORT',
+    ],
+    envVarInfo: [
+      { name: 'IMAP_HOST', source: 'IMAP server host' },
+      { name: 'IMAP_PORT', source: 'IMAP server port', defaultValue: '993' },
+      { name: 'SMTP_HOST', source: 'SMTP server host' },
+      { name: 'SMTP_PORT', source: 'SMTP server port', defaultValue: '465' },
+    ],
+    config: {
+      imapHost: env.IMAP_HOST,
+      imapPort: Number(env.IMAP_PORT),
+      smtpHost: env.SMTP_HOST,
+      smtpPort: Number(env.SMTP_PORT),
+      imapSecure: env.IMAP_SECURE === 'true',
+      smtpSecure: env.SMTP_SECURE === 'true',
+    },
+  },
   //   {
   //     id: 'microsoft',
   //     name: 'Microsoft',

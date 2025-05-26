@@ -4,13 +4,13 @@ The current codebase only registers the `google` mail driver and instructs users
 To add IMAP and SMTP support the following areas need work:
 
 ## 1. Provider and Configuration
-- [ ] Add an `imap` (or generic) provider to `apps/server/src/lib/driver/index.ts`.
-- [ ] Register this provider in `authProviders` and `emailProviders` so users can select it in the UI.
-- [ ] Extend environment variables and `.env.example` for IMAP/SMTP host, port, and security settings.
+- [x] Add an `imap` (or generic) provider to `apps/server/src/lib/driver/index.ts`.
+- [x] Register this provider in `authProviders` and `emailProviders` so users can select it in the UI.
+- [x] Extend environment variables and `.env.example` for IMAP/SMTP host, port, and security settings.
 
 ## 2. Database Updates
-- [ ] Update `packages/db/src/schema.ts` and migrations to store IMAP and SMTP connection details (server URLs, ports, username, encrypted password or OAuth tokens).
-- [ ] Include flags for TLS/SSL and other options.
+- [x] Update `packages/db/src/schema.ts` and migrations to store IMAP and SMTP connection details (server URLs, ports, username, encrypted password or OAuth tokens).
+- [x] Include flags for TLS/SSL and other options.
 
 ## 3. Driver Implementation
 - [ ] Implement a new `ImapSmtpMailManager` that satisfies `MailManager` in `apps/server/src/lib/driver/types.ts`.
